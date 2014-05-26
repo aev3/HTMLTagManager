@@ -1,0 +1,39 @@
+# 
+# This is a simple makefile that builds HTMLTagManager.EXE from 
+# HTMLTagManager.cpp 
+#
+# 
+CFLAGS 		= /c /Od /EHsc /Zi 	# controls compiler options 
+#LFLAGS 	= /CO 				# controls linker options 
+#CODEVIEW 	= /Zi 				# controls debugging information 
+#  
+CC			= cl
+MACHINE		= X64
+# 
+OBJS		= HTMLTagManager.obj
+#  
+HTMLTagManager.obj : HTMLTagManager.cpp HTMLTagManager.hpp 
+	$(CC) $(CFLAGS) HTMLTagManager.cpp
+#
+all : HTMLTagManager.exe
+#  
+HTMLTagManager.exe : $(OBJS) 
+	link $(LFLAGS) @<<HTMLTagManager.lrf 
+$(OBJS: =+^ 
+) 
+HTMLTagManager.exe 
+HTMLTagManager.map; 
+<<KEEP 
+ 
+# build application
+# HTMLTagManager: HTMLTagManager.exe
+
+clean :
+	-del *.obj
+	-del *.map
+	-del *.lrf
+
+#
+#
+# EoF
+ 
