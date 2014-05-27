@@ -102,6 +102,6 @@ public:
     virtual
     ~REXConsts();
 
-};
+}; // class REXConsts
 
 #endif /* REXCONSTS_HPP */
